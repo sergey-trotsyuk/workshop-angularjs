@@ -3,5 +3,6 @@ angular
       'components.mainHeader',
       'components.mainContent',
       'components.postList',
-      'components.postListItem'
+      'components.postListItem',
+      'components.addPost'
   ]);

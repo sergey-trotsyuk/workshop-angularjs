@@ -20,7 +20,8 @@ const paths = {
     styles: `${root}/sass/*.scss`,
     templates: `${root}/app/**/*.html`,
     modules: [
-        'angular/angular.js'
+        'angular/angular.js',
+        'angular-resource/angular-resource.js',
     ],
     static: [
         `${root}/index.html`,

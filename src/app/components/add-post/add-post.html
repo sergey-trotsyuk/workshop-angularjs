@@ -1,0 +1,17 @@
+<form name="postForm" ng-submit="$ctrl.onAddPost(postForm)" class="add-post" novalidate>
+    <label>
+        Title:
+        <input type="text" name="title" ng-model="$ctrl.item.title" required>
+    </label>
+    <div ng-if="postForm.title.$touched && postForm.title.$error">
+        <div ng-if="postForm.title.$error.required">Title is required</div>
+    </div>
+
+    <label>
+        Description:
+        <input type="text" name="description" ng-model="$ctrl.item.description">
+    </label>
+    <div>{{postForm.description.$error && postForm.description.$error.message}}</div>
+
+    <button type="submit">Add Post</button>
+</form>

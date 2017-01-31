@@ -1,14 +1,23 @@
 class MainContentController {
-    constructor($http) {
-        this.$http = $http;
+    constructor(Posts) {
+        this.Posts = Posts;
     }
 
     $onInit() {
-        this.items = [];
-        this.$http.get('http://sarhan-blog.herokuapp.com/api/posts/').then((response) => {
-            console.log('!!! ');
-            this.items = response.data.responses.posts;
+        // this.items = [];
+        this.items = this.Posts.query();
+
+        // this.PostsService.getPosts().then((response) => {
+        //     this.items = response.data.responses.posts;
+        // });
+    }
+
+    onAddPost() {
+        const post = new this.Posts({
+            description: "Sergey's Blog Description"
         });
+        post.title = "Sergey's Blog Post";
+        post.$save();
     }
 }
 

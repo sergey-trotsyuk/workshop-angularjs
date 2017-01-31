@@ -1,5 +1,6 @@
 angular.module('templates', []).run(['$templateCache', function($templateCache) {$templateCache.put('./root.html','<div class="root">\n  <main-header></main-header>\n  <main-content>\n    <h1>Hello world!</h1>\n  </main-content>\n</div>\n');
-$templateCache.put('./main-content.html','<div class="main-content">\n    <ng-transclude></ng-transclude>\n\n    <post-list>\n        <post-list-item item="item" ng-repeat="item in $ctrl.items"></post-list-item>\n    </post-list>\n\n</div>\n');
+$templateCache.put('./add-post.html','<form name="postForm" ng-submit="$ctrl.onAddPost(postForm)" class="add-post" novalidate>\n    <label>\n        Title:\n        <input type="text" name="title" ng-model="$ctrl.item.title" required>\n    </label>\n    <div ng-if="postForm.title.$touched && postForm.title.$error">\n        <div ng-if="postForm.title.$error.required">Title is required</div>\n    </div>\n\n    <label>\n        Description:\n        <input type="text" name="description" ng-model="$ctrl.item.description">\n    </label>\n    <div>{{postForm.description.$error && postForm.description.$error.message}}</div>\n\n    <button type="submit">Add Post</button>\n</form>\n');
+$templateCache.put('./main-content.html','<div class="main-content">\n    <ng-transclude></ng-transclude>\n\n    <add-post></add-post>\n\n    <post-list>\n        <post-list-item item="item" ng-repeat="item in $ctrl.items"></post-list-item>\n    </post-list>\n\n</div>\n');
 $templateCache.put('./main-header.html','<div class="main-header">\n    Header!\n</div>\n');
-$templateCache.put('./post-list.html','<ul>\n    <ng-transclude></ng-transclude>\n</ul>\n');
-$templateCache.put('./post-list-item.html','<li>{{$ctrl.item.title}}</li>\n');}]);
+$templateCache.put('./post-list-item.html','<li>{{$ctrl.item.title}}</li>\n');
+$templateCache.put('./post-list.html','<ul>\n    <ng-transclude></ng-transclude>\n</ul>\n');}]);
